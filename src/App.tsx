@@ -4,6 +4,7 @@ function App() {
 
   const Learn = () => {
     alert('Hello Git & GitHub')
+    console.log('Hello Git & GitHub')
   }
 
   return (
