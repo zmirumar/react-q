@@ -11,6 +11,7 @@ function App() {
     <div>
       <h1>Git & GitHub</h1>
       <button onClick={Learn}>Learn More</button>
+      <button>Do not Learn</button>
     </div>
   )
 }
