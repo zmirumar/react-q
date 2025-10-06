@@ -1,9 +1,19 @@
-const Akbar = () => {
-  return (
-     <>
-     <a href="https://t.me/codingwithakbar">codeLingo</a>
-     </>
-  )
-}
+import React from "react";
 
-export default Akbar
+const Akbar = () => {
+  const click = () => {
+    prompt("Kim zor?")
+    while (true) {
+      console.log("Akbar sila");
+    }
+  };
+
+  return (
+    <div>
+      <br />
+      <button onClick={click}>Click</button>
+    </div>
+  );
+};
+
+export default Akbar;
