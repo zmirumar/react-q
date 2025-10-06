@@ -11,8 +11,8 @@ function App() {
 
   return (
     <div>
-      <Hasan />
       <Mirumar />
+      <Hasan />
       <Akbar/>
       <h1>Git & GitHub</h1>
       <button onClick={Learn}>Learn More</button>
