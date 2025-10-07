@@ -1,68 +1,241 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
+/* 🔹 Umumiy sahifa background */
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
+  padding: 0;
+  background: linear-gradient(-45deg, #0ea5e9, #9333ea, #ef4444, #f59e0b);
+  background-size: 400% 400%;
+  animation: gradientMove 15s ease infinite;
+  color: white;
+  font-family: "Poppins", sans-serif;
   min-height: 100vh;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+/* 🔹 Root (App konteyneri) */
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
+/* 🔹 HEADER (NAVBAR) */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(14, 165, 233, 0.9);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  animation: slideDown 0.6s ease-out;
+  transition: all 0.3s ease;
+}
+
+.header:hover {
+  background: rgba(56, 189, 248, 0.9);
+  box-shadow: 0 0 25px rgba(14, 165, 233, 0.6);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 40px;
+}
+
+/* 🔹 LOGO */
+.logo svg {
+  transition: transform 0.5s ease;
+}
+
+.logo svg:hover {
+  transform: scale(1.08) rotate(-2deg);
+}
+
+/* 🔹 NAVIGATION MENU */
+.nav-list {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  font-size: 18px;
   font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 5px 8px;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+.nav-link:hover {
+  color: #00ffcc;
+  text-shadow: 0 0 10px #00ffcc;
+}
+
+/* 🔹 Hover animatsiya pastdan chiziq */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -3px;
+  left: 0;
+  background-color: #00ffcc;
+  transition: width 0.3s ease-in-out;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* 🔹 Aktiv link */
+.active-link {
+  color: #00ffcc;
+  font-weight: 600;
+}
+
+.active-link::after {
+  width: 100%;
+}
+
+/* 🔹 Umumiy sahifa */
+.page {
+  text-align: center;
+  padding: 80px 20px;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+/* 🔹 Hasan sahifasi */
+.hasan-page {
+  background: linear-gradient(135deg, #0ea5e9, #38bdf8);
+  color: white;
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: 0 0 20px rgba(14, 165, 233, 0.4);
+  transition: transform 0.3s;
+}
+.hasan-page:hover {
+  transform: scale(1.02);
+}
+
+.hasan-title {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.hasan-desc {
+  font-size: 18px;
+}
+
+/* 🔹 Mirumar sahifasi */
+.mirumar-page {
+  background: linear-gradient(135deg, #7c3aed, #9333ea);
+  color: white;
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: 0 0 20px rgba(147, 51, 234, 0.4);
+  transition: transform 0.3s;
+}
+.mirumar-page:hover {
+  transform: scale(1.02);
+}
+
+.mirumar-title {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.legend-link {
+  color: #fff;
+  background-color: #1d4ed8;
+  padding: 12px 25px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+.legend-link:hover {
+  background-color: #2563eb;
+  transform: scale(1.05);
+}
+
+/* 🔹 Akbar sahifasi */
+.akbar-page {
+  background: linear-gradient(135deg, #f59e0b, #ef4444);
+  color: white;
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.4);
+  transition: transform 0.3s;
+}
+.akbar-page:hover {
+  transform: scale(1.02);
+}
+
+.akbar-title {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.akbar-desc {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.legend-btn {
+  padding: 10px 25px;
+  background-color: white;
+  color: #ef4444;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.legend-btn:hover {
+  background-color: #fee2e2;
+  transform: scale(1.05);
+}
+
+/* 🔹 Animatsiyalar */
+@keyframes slideDown {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
   }
-  a:hover {
-    color: #747bff;
+  100% {
+    transform: translateY(0);
+    opacity: 1;
   }
-  button {
-    background-color: #f9f9f9;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
