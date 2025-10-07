@@ -1,24 +1,25 @@
-import "./App.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+// 🔹 3 ta sahifa
 import Hasan from "./components/Hasan";
 import Mirumar from "./components/Mirumar";
 import Akbar from "./components/Akbar";
+import Navbar from "./Layout/Navbar/Navbar"; // Navbar joylashgan joy
 
 function App() {
-  const Learn = () => {
-    alert("Hello Git & GitHub");
-    console.log("Hello Git & GitHub");
-  };
+  const router = createBrowserRouter([
+    {
+      element: <Navbar />,
+      children: [
+        { index: true, element: <Hasan /> }, // bosh sahifa — Hasan Legenda
+        { path: "Hasan", element: <Hasan /> },
+        { path: "Mirumar", element: <Mirumar /> },
+        { path: "Akbar", element: <Akbar /> },
+      ],
+    },
+  ]);
 
-  return (
-    <div>
-      <Mirumar />
-      <Hasan />
-      <Akbar/>
-      <h1>Git & GitHub</h1>
-      <button onClick={Learn}>Learn More</button>
-      <button>Do not Learn</button>
-    </div>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

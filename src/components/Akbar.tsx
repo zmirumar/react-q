@@ -1,17 +1,16 @@
-import React from "react";
-
 const Akbar = () => {
   const click = () => {
-    prompt("Kim zor?")
+    prompt("Kim zor?");
     while (true) {
       console.log("Akbar sila");
     }
   };
 
   return (
-    <div>
-      <br />
-      <button onClick={click}>Click</button>
+    <div className="page akbar-page">
+      <button className="legend-btn" onClick={click}>
+        Click
+      </button>
     </div>
   );
 };
